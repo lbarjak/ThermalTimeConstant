@@ -11,9 +11,9 @@ import eu.barjak.thermaltimeconstant.entity.GlobalVariables;
 @Service
 public class WeatherService implements GlobalVariables {
 	
-	static String startDateString = "2023-02-25";
+	public static String startDateString = "2023-02-25";
 	static String endDateString = "2023-03-05";
-	static String startTimeString = "17:30";
+	public static String startTimeString = "17:30";
 	static Double initialRoomTemperature = 17d;
 	static final Double thermalTimeConstant = 50d;
 	
