@@ -8,5 +8,13 @@
 </head>
 <body>
 Hello!
+<script th:inline="javascript">
+/*<![CDATA[*/
+    var indexOfMeasuredTemperatures = /*[[${indexOfMeasuredTemperatures}]]*/ 'indexOfMeasuredTemperatures';
+    console.log("indexOfMeasuredTemperatures:");
+    console.log(indexOfMeasuredTemperatures);
+/*]]>*/
+</script>
+<a th:text="${indexOfMeasuredTemperatures}"></a>
 </body>
 </html>

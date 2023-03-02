@@ -15,7 +15,7 @@ import eu.barjak.thermaltimeconstant.entity.GlobalVariables;
 public class WeatherQuery implements GlobalVariables {
 	
 	int id = 590; // MartonOMSZ 590, MartonBambi 444, LagymanyosOMSZ 615
-	int indexOfTEMPERATURES = 0;
+	int indexOfMeasuredTemperatures = 0;
 
 	public int steps() throws IOException, ParseException {
 		LocalDate today = LocalDate.now();
@@ -24,10 +24,10 @@ public class WeatherQuery implements GlobalVariables {
 				query(localDate);
 			}
 		}
-		if (indexOfTEMPERATURES % 144 == 0) {
+		if (indexOfMeasuredTemperatures % 144 == 0) {
 			System.out.println(today + ": nincs még mai adat");
 		}
-		return indexOfTEMPERATURES;
+		return indexOfMeasuredTemperatures;
 	}
 
 	public void query(LocalDate actualDate) throws IOException, ParseException {
@@ -58,7 +58,7 @@ public class WeatherQuery implements GlobalVariables {
 			if (!outdoorTemperatureList.get(i).equals("null")) {
 				outdoorTemperature = Double.parseDouble(outdoorTemperatureList.get(i));
 				TEMPERATURES_MAP.get(actualDate).get(i).setOutdoorTemp(outdoorTemperature);
-				indexOfTEMPERATURES++;
+				indexOfMeasuredTemperatures++;
 			}
 		}
 	}

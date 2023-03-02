@@ -17,7 +17,7 @@ public class WeatherService implements GlobalVariables {
 	static Double initialRoomTemperature = 17d;
 	static final Double thermalTimeConstant = 50d;
 	
-	public String weather() throws ParseException, IOException {
+	public int weather() throws ParseException, IOException {
     	LocalDate startDate = LocalDate.parse(startDateString);
     	LocalDate endDate = LocalDate.parse(endDateString);
     	
@@ -25,17 +25,18 @@ public class WeatherService implements GlobalVariables {
 		dates.elapsedDays(startDate, endDate);//startDate - endDate --> LOCALDATES
 		
 		WeatherQuery weatherQuery = new WeatherQuery();
-		int indexOfTEMPERATURES = weatherQuery.steps();//LOCALDATES --> TEMPERATURES_MAP
+		int indexOfMeasuredTemperatures = weatherQuery.steps();//LOCALDATES --> TEMPERATURES_MAP
 		
-		if(indexOfTEMPERATURES > 0) {
+		if(indexOfMeasuredTemperatures > 0) {
 			Calculation calculation = new Calculation();
 			calculation.calculation(thermalTimeConstant, startTimeString, initialRoomTemperature);
-			Double last24hAverage = calculation.last24hAverage(indexOfTEMPERATURES);
-			calculation.forecast(indexOfTEMPERATURES, last24hAverage);
+			Double last24hAverage = calculation.last24hAverage(indexOfMeasuredTemperatures);
+			calculation.forecast(indexOfMeasuredTemperatures, last24hAverage);
 			
 			new Writeout().toCSV();
 		}
-		return "valami";
+		System.out.println(indexOfMeasuredTemperatures);
+		return indexOfMeasuredTemperatures;
 	}
 
 }

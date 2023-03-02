@@ -62,11 +62,11 @@ public class Calculation implements GlobalVariables {
 		return startTimeIndex;
 	}
 
-	public Double last24hAverage(int indexOfTEMPERATURES) {
+	public Double last24hAverage(int indexOfMeasuredTemperatures) {
 		Double sum = 0.0;
 		Double temp = 0.0;
 		int divider = 144;
-		for (int i = indexOfTEMPERATURES - 1; i > indexOfTEMPERATURES - 145; i--) {
+		for (int i = indexOfMeasuredTemperatures - 1; i > indexOfMeasuredTemperatures - 145; i--) {
 			temp = TEMPERATURES.get(i).getOutdoorTemp();
 			if (temp != null) {
 				sum += temp;
@@ -77,12 +77,12 @@ public class Calculation implements GlobalVariables {
 		return sum / divider;
 	}
 
-	public void forecast(int indexOfTEMPERATURES, Double last24hAverage) {
-		roomTemp1 = TEMPERATURES.get(indexOfTEMPERATURES - 1).getRoomTemp2();
-		for (int i = indexOfTEMPERATURES; i < TEMPERATURES.size(); i++) {
+	public void forecast(int indexOfMeasuredTemperatures, Double last24hAverage) {
+		roomTemp1 = TEMPERATURES.get(indexOfMeasuredTemperatures - 1).getRoomTemp2();
+		for (int i = indexOfMeasuredTemperatures; i < TEMPERATURES.size(); i++) {
 			TEMPERATURES.get(i).setOutdoorTemp(last24hAverage);
 			TEMPERATURES.get(i).setRoomTemp1(roomTemp1);
-			if(i >= indexOfTEMPERATURES) {
+			if(i >= indexOfMeasuredTemperatures) {
 				TEMPERATURES.get(i).setForecast(roomTemp1);
 			}
 			outdoorTemp = TEMPERATURES.get(i).getOutdoorTemp();
