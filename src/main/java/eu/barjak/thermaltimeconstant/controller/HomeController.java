@@ -8,10 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import eu.barjak.thermaltimeconstant.entity.GlobalVariables;
 import eu.barjak.thermaltimeconstant.service.WeatherService;
 
 @Controller
-public class HomeController {
+public class HomeController implements GlobalVariables {
 
 	private WeatherService weatherService;
 
@@ -22,6 +23,7 @@ public class HomeController {
 
 	private void extracted(Model model) throws ParseException, IOException {
 		model.addAttribute("indexOfMeasuredTemperatures", weatherService.weather());
+		model.addAttribute("roomTemp1", ROOMTEMP1);
 	}
 	
 	@GetMapping("/")
