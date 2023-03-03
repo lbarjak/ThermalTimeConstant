@@ -7,22 +7,18 @@
 <title>ThermalTimeConstant</title>
 </head>
 <body>
-<script th:inline="javascript">
-/*<![CDATA[*/
-    var indexOfMeasuredTemperatures = /*[[${indexOfMeasuredTemperatures}]]*/ 'indexOfMeasuredTemperatures';
-    console.log("indexOfMeasuredTemperatures:");
-    console.log(indexOfMeasuredTemperatures);
-    var roomTemp1 = /*[[${roomTemp1}]]*/ 'roomTemp1';
-    console.log("roomTemp1:");
-    console.log(roomTemp1);
-    var startDate = /*[[${startDate}]]*/ 'startDate';
-    console.log("startDate:");
-    console.log(startDate);
-    var startTime = /*[[${startTime}]]*/ 'startTime';
-    console.log("startTime:");
-    console.log(startTime);
-/*]]>*/
-</script>
-<a th:text="${indexOfMeasuredTemperatures}"></a>
+	Hello!
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		let indexOfMeasuredTemperatures = /*[[${indexOfMeasuredTemperatures}]]*/'indexOfMeasuredTemperatures';
+		let roomTemp1 = /*[[${roomTemp1}]]*/'roomTemp1';
+		let startDate = /*[[${startDate}]]*/'startDate';
+		let startTime = /*[[${startTime}]]*/'startTime';
+		/*]]>*/
+	</script>
+	<script src='myclass.js'>
+	//const myclass = import('./myclass.js');
+	</script>
+	<a th:text="${indexOfMeasuredTemperatures}"></a>
 </body>
 </html>

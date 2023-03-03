@@ -21,6 +21,12 @@ public class WeatherService implements GlobalVariables {
     	LocalDate startDate = LocalDate.parse(startDateString);
     	LocalDate endDate = LocalDate.parse(endDateString);
     	
+    	LOCALDATES.clear();
+    	TEMPERATURES_MAP.clear();
+    	TEMPERATURES.clear();
+    	ROOMTEMP1.clear();
+    	
+    	
     	Dates dates = new Dates();
 		dates.elapsedDays(startDate, endDate);//startDate - endDate --> LOCALDATES
 		
@@ -35,7 +41,6 @@ public class WeatherService implements GlobalVariables {
 			
 			new Writeout().toCSV();
 		}
-		System.out.println(indexOfMeasuredTemperatures);
 		return indexOfMeasuredTemperatures;
 	}
 
