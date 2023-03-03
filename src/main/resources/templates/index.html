@@ -3,22 +3,31 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layouts/main}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Temperatures</title>
 <head>
 <title>ThermalTimeConstant</title>
 </head>
 <body>
-	Hello!
 	<script th:inline="javascript">
 		/*<![CDATA[*/
 		let indexOfMeasuredTemperatures = /*[[${indexOfMeasuredTemperatures}]]*/'indexOfMeasuredTemperatures';
 		let roomTemp1 = /*[[${roomTemp1}]]*/'roomTemp1';
 		let startDate = /*[[${startDate}]]*/'startDate';
 		let startTime = /*[[${startTime}]]*/'startTime';
+		let proba = [ 4, 3, 2, 1, 0, 2, 4, 1,
+			9, 10 ];
+		console.log(proba);
 		/*]]>*/
 	</script>
-	<script src='myclass.js'>
-	//const myclass = import('./myclass.js');
-	</script>
-	<a th:text="${indexOfMeasuredTemperatures}"></a>
+	<div>
+		<canvas id="line-chart" width="1920" height="940"></canvas>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src='main.js'></script>
+
 </body>
 </html>
