@@ -22,6 +22,7 @@ public class Writeout implements GlobalVariables {
 			time = temperature.getTime();
 			day = temperature.getDay();
 			outdoorTemp = temperature.getOutdoorTemp();
+			OUTDOORTEMP.add(outdoorTemp);
 			roomTemp1 = temperature.getRoomTemp1();
 			ROOMTEMP1.add(roomTemp1);
 			date = temperature.getDate();

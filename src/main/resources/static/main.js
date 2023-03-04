@@ -7,6 +7,8 @@ class MyClass {
 		console.log(indexOfMeasuredTemperatures);
 		console.log("roomTemp1:");
 		console.log(roomTemp1);
+		console.log("outdoorTemp:");
+		console.log(outdoorTemp);
 		console.log("startTime:");
 		console.log(startTime);
 	}
@@ -22,9 +24,16 @@ new Chart(document.getElementById("line-chart"), {
 		datasets: [
 			{
 				data: roomTemp1,
-				label: "Mért adatokból",
+				label: "Számításból",
 				borderColor: "#3e95cd",
 				fill: false
-			}]
+			},
+			{
+				data: outdoorTemp,
+				label: "Mért adatokból",
+				borderColor: "#8e5ea2",
+				fill: false
+			}
+		]
 	}
 });

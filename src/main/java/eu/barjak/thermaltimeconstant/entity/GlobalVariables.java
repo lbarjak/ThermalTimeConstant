@@ -10,5 +10,6 @@ public interface GlobalVariables {
 	LinkedHashMap<LocalDate, ArrayList<Temperature>> TEMPERATURES_MAP = new LinkedHashMap<>();
 	ArrayList<Temperature> TEMPERATURES = new ArrayList<>();
 	ArrayList<Double> ROOMTEMP1 = new ArrayList<>();
+	ArrayList<Double> OUTDOORTEMP = new ArrayList<>();
 
 }

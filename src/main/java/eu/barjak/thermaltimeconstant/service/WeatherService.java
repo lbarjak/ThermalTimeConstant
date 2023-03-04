@@ -25,6 +25,7 @@ public class WeatherService implements GlobalVariables {
     	TEMPERATURES_MAP.clear();
     	TEMPERATURES.clear();
     	ROOMTEMP1.clear();
+    	OUTDOORTEMP.clear();
     	
     	
     	Dates dates = new Dates();

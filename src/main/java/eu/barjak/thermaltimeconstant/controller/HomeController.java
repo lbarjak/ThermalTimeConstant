@@ -24,6 +24,7 @@ public class HomeController implements GlobalVariables {
 	private void extracted(Model model) throws ParseException, IOException {
 		model.addAttribute("indexOfMeasuredTemperatures", weatherService.weather());
 		model.addAttribute("roomTemp1", ROOMTEMP1);
+		model.addAttribute("outdoorTemp", OUTDOORTEMP);
 		model.addAttribute("startDate", WeatherService.startDateString);
 		model.addAttribute("startTime", WeatherService.startTimeString);
 	}
