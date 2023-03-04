@@ -24,10 +24,14 @@ public class Writeout implements GlobalVariables {
 			outdoorTemp = temperature.getOutdoorTemp();
 			OUTDOORTEMP.add(outdoorTemp);
 			roomTemp1 = temperature.getRoomTemp1();
+			if(roomTemp1 != null) {
+				roomTemp1 = Math.round(roomTemp1 * 10.0) / 10.0;
+			}
 			ROOMTEMP1.add(roomTemp1);
 			date = temperature.getDate();
 			elapsedDays = temperature.getElapsedDays();
 			forecast = temperature.getForecast();
+			FORECAST.add(forecast);
 			//output.println(date + "|" + time + "|" + day + "|" + outdoorTemp + "|" + elapsedDays + "|" + roomTemp1 + "|" + forecast);
 		}
 		//output.close();

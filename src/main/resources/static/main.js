@@ -9,6 +9,8 @@ class MyClass {
 		console.log(roomTemp1);
 		console.log("outdoorTemp:");
 		console.log(outdoorTemp);
+		console.log("forecast:");
+		console.log(forecast);
 		console.log("startTime:");
 		console.log(startTime);
 	}
@@ -23,8 +25,14 @@ new Chart(document.getElementById("line-chart"), {
 		labels: roomTemp1,
 		datasets: [
 			{
+				data: forecast,
+				label: "Előrejelzés előző 24h átlagból",
+				borderColor: "#c45850",
+				fill: false
+			},
+			{
 				data: roomTemp1,
-				label: "Számításból",
+				label: "Számítás termikus időállandóval",
 				borderColor: "#3e95cd",
 				fill: false
 			},

@@ -11,5 +11,6 @@ public interface GlobalVariables {
 	ArrayList<Temperature> TEMPERATURES = new ArrayList<>();
 	ArrayList<Double> ROOMTEMP1 = new ArrayList<>();
 	ArrayList<Double> OUTDOORTEMP = new ArrayList<>();
+	ArrayList<Double> FORECAST = new ArrayList<>();
 
 }

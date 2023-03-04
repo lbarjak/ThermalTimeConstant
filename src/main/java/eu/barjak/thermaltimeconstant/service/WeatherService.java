@@ -15,7 +15,7 @@ public class WeatherService implements GlobalVariables {
 	static String endDateString = "2023-03-05";
 	public static String startTimeString = "17:30";
 	static Double initialRoomTemperature = 17d;
-	static final Double thermalTimeConstant = 50d;
+	static final Double thermalTimeConstant = 50d;//min. 3.3 max. 122
 	
 	public int weather() throws ParseException, IOException {
     	LocalDate startDate = LocalDate.parse(startDateString);
@@ -26,6 +26,7 @@ public class WeatherService implements GlobalVariables {
     	TEMPERATURES.clear();
     	ROOMTEMP1.clear();
     	OUTDOORTEMP.clear();
+    	FORECAST.clear();
     	
     	
     	Dates dates = new Dates();
