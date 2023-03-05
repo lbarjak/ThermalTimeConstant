@@ -11,10 +11,10 @@ import eu.barjak.thermaltimeconstant.entity.GlobalVariables;
 @Service
 public class WeatherService implements GlobalVariables {
 	
-	public static String startDateString = "2023-02-25";
-	static String endDateString = "2023-03-05";
-	public static String startTimeString = "17:30";
-	static Double initialRoomTemperature = 17d;
+	public static String startDateString = "2023-03-05";
+	static String endDateString = "2023-03-12";
+	public static String startTimeString = "14:30";
+	static Double initialRoomTemperature = 19d;
 	static final Double thermalTimeConstant = 50d;//min. 3.3 max. 122
 	
 	public int weather() throws ParseException, IOException {
@@ -34,12 +34,14 @@ public class WeatherService implements GlobalVariables {
 		
 		WeatherQuery weatherQuery = new WeatherQuery();
 		int indexOfMeasuredTemperatures = weatherQuery.steps();//LOCALDATES --> TEMPERATURES_MAP
-		
+
 		if(indexOfMeasuredTemperatures > 0) {
 			Calculation calculation = new Calculation();
 			calculation.calculation(thermalTimeConstant, startTimeString, initialRoomTemperature);
-			Double last24hAverage = calculation.last24hAverage(indexOfMeasuredTemperatures);
-			calculation.forecast(indexOfMeasuredTemperatures, last24hAverage);
+			if(indexOfMeasuredTemperatures > 144) {
+				Double last24hAverage = calculation.last24hAverage(indexOfMeasuredTemperatures);
+				calculation.forecast(indexOfMeasuredTemperatures, last24hAverage);
+			}
 			
 			new Writeout().toCSV();
 		}
